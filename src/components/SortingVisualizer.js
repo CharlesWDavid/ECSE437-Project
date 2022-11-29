@@ -88,7 +88,7 @@ const SortingVisualizer = () => {
   };
 
   return (
-    <div>
+    <div data-testid="sorting-visualizer-testid">
       <Controls
         resetArray={resetArray}
         mergeSort={mergeSort}

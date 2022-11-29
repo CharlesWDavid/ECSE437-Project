@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 
 const Controls = (props) => {
   return (
-    <div>
+    <div data-testid="controls-testid">
       <Navbar expand="lg" variant="dark" bg="dark">
         <Container>
           <Navbar.Brand href="/"> Sorting Visualizer </Navbar.Brand>
