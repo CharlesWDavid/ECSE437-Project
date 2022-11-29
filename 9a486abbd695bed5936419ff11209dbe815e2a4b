@@ -16,6 +16,24 @@
       "message": "Tests look good.",
       "revId": "9a486abbd695bed5936419ff11209dbe815e2a4b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e102738_b4c9b7a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1020583
+      },
+      "writtenOn": "2022-11-29T20:42:25Z",
+      "side": 1,
+      "message": "Thanks! Merging right now.",
+      "parentUuid": "385215ca_3e54dd3e",
+      "revId": "9a486abbd695bed5936419ff11209dbe815e2a4b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
