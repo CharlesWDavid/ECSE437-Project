@@ -5,6 +5,7 @@ import * as Constants from "./constants";
 
 import { getMergeSortAnimations } from "./SortingAlgorithms";
 import { getQuickSortAnimations } from "./SortingAlgorithms";
+import { getHeapSortAnimations } from "./SortingAlgorithms";
 
 const SortingVisualizer = () => {
   const [array, setArray] = useState([]);
@@ -84,7 +85,31 @@ const SortingVisualizer = () => {
   };
 
   const heapSort = () => {
-    return; // TODO
+    const animations = getHeapSortAnimations(array);
+    for (let i=0; i<animations.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
+      const isColorChange = i % 3 !== 2;
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? Constants.SECONDARY_COLOR : Constants.PRIMARY_COLOR;
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * Constants.ANIMATION_SPEED_MS);
+      } else {
+        setTimeout(() => {
+          const [barOneIdx, barOneHeight, barTwoIdx, barTwoHeight, isSwap] = animations[i];
+          if (isSwap){
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            barOneStyle.height = `${barTwoHeight}px`;
+            barTwoStyle.height = `${barOneHeight}px`;
+          }
+        }, i * Constants.ANIMATION_SPEED_MS);
+      }
+    }
   };
 
   return (
