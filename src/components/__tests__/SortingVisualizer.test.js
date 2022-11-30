@@ -59,10 +59,27 @@ describe("SortingVisualizer Integration Tests", () => {
       .getAllByTestId("array-bar-testid")
       .map((el) => parseInt(window.getComputedStyle(el).height.slice(0, -2))); // Convert bar px height to int value
     const buttonElement = screen.getByRole("button", {
-      name: "Quick Sort",
+      name: "Merge Sort",
     });
     fireEvent.click(buttonElement);
-    await new Promise((r) => setTimeout(r, 1500)); // Wait for sorting animation to finish
+    await new Promise((r) => setTimeout(r, 4000)); // Wait for sorting animation to finish
+    const new_bars = screen
+      .getAllByTestId("array-bar-testid")
+      .map((el) => parseInt(window.getComputedStyle(el).height.slice(0, -2)));
+    initial_bars.sort((a, b) => a - b);
+    expect(initial_bars).toEqual(new_bars);
+  });
+
+  it("Clicking Heap Sort button should sort the array", async () => {
+    render(<SortingVisualizer />);
+    const initial_bars = screen
+      .getAllByTestId("array-bar-testid")
+      .map((el) => parseInt(window.getComputedStyle(el).height.slice(0, -2))); // Convert bar px height to int value
+    const buttonElement = screen.getByRole("button", {
+      name: "Heap Sort",
+    });
+    fireEvent.click(buttonElement);
+    await new Promise((r) => setTimeout(r, 4500)); // Wait for sorting animation to finish
     const new_bars = screen
       .getAllByTestId("array-bar-testid")
       .map((el) => parseInt(window.getComputedStyle(el).height.slice(0, -2)));
