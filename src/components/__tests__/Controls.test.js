@@ -37,7 +37,7 @@ describe("Controls Unit Tests", () => {
 
   it("Controls should render with Heap Sort button", async () => {
     const buttonElement = screen.getByRole("button", {
-      name: "HeapSort",
+      name: "Heap Sort",
     });
     expect(buttonElement).toBeInTheDocument();
   });
